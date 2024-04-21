@@ -11,7 +11,7 @@ Last Commit: 18 April 2024
 from openai import OpenAI
 
 
-client = OpenAI(api_key="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")
+# client = OpenAI(api_key="[YOUR-OPENAI-KEY]")
 
 response = client.chat.completions.create(
     model="gpt-4",
