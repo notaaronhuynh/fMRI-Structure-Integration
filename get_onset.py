@@ -35,8 +35,8 @@ def get_onset(duration, story_num, detection_threshold, original_sr=16000, low_s
         word = split_string[2]
         
         # Downsample aggressively to get envelope then resample to original sr
-        duration = len(y) / sr
-        wav_env = resample(resample(np.abs(y), int(low_sr * duration)), int(original_sr * duration))
+        dur = len(y) / sr
+        wav_env = resample(resample(np.abs(y), int(low_sr * dur)), int(original_sr * dur))
         
 #         if export:
 #             filename = f"{file[:-5]}_ds.wav"
@@ -123,11 +123,10 @@ def get_onset(duration, story_num, detection_threshold, original_sr=16000, low_s
             new_file = f"{file[:-5]}_crop.wav"
 #             crop.export(f"{new_file}.wav", format="wav") 
             sf.write(new_file, crop, sr)
-#             print("Exported successfully.\n")
+            print(f"Onset detected for {word} in Story {story_num} at {duration}ms\n")
 
         else:
             return onset
-
 
 # slow = ["450", "630", "750", "900"]
 # fast = ["150", "210", "250", "300"]

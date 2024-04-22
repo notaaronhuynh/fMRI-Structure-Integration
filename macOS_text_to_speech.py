@@ -24,10 +24,16 @@ def text_to_speech(paragraph, story_num, duration):
 
     for num, word in enumerate(word_list):
 
-        print(f"\tConverting \"{word}\" to text-to-speech")
+        if len(word) == 1:
+            lowercase = word.lower()
+            os.system(f"say -v \"Samantha\" \"{lowercase}\" -o {num+1}_story{story_num}_{word}_{duration}ms")
+        
+        else:
+        # print(f"\tConverting \"{word}\" to text-to-speech")
 
-        os.system(f"say -v \"Samantha\" \"{word}\" -o {num+1}_story{story_num}_{word}_{duration}ms")
+            os.system(f"say -v \"Samantha\" \"{word}\" -o {num+1}_story{story_num}_{word}_{duration}ms")
 
-        print(f"\n\t\t\"{word}\" converted\n")
+        # print(f"\n\t\t\"{word}\" converted\n")
 
-    print("\nSaved all text-to-speech stimulus!")
+    print(f"\nSaved all text-to-speech stimulus for Story {story_num} at {duration}ms!")
+    print()

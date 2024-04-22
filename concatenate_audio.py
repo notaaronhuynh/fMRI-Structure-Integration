@@ -44,6 +44,7 @@ def concatenate_audio(duration, story_num):
     combined_file_path = f"/Users/ahuynh2/Documents/Norman-Haignere/temporal-window-stimulus-generation-code/stimuli/{duration}ms/Story{story_num}/Story{story_num}_{duration}ms.wav"
     sf.write(combined_file_path, combined_data, sample_rate)
     print(f"Story {story_num} concatenated!")
+    print()
 
 
 # slow = ["450", "630", "750", "900"]
